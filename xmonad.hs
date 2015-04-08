@@ -6,7 +6,10 @@ import XMonad.Util.EZConfig(additionalKeys)
 import System.IO
 
 main = do
-xmproc <- spawnPipe "/usr/local/bin/xmobar ~/.xmobarrc"
+xmproc <- spawnPipe "/usr/bin/dmenu"
+xmproc <- spawnPipe "/usr/bin/xmobar ~/.xmobarrc"
+xmproc <- spawnPipe "/usr/bin/setxkbmap -option ctrl:nocaps"
+
 xmonad $ defaultConfig
            {modMask = mod4Mask
            , terminal = "urxvt +sb"
