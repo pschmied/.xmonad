@@ -6,9 +6,11 @@ import XMonad.Util.EZConfig(additionalKeys)
 import System.IO
 
 main = do
-xmproc <- spawnPipe "/usr/bin/dmenu"
-xmproc <- spawnPipe "/usr/bin/xmobar ~/.xmobarrc"
-xmproc <- spawnPipe "/usr/bin/setxkbmap -option ctrl:nocaps"
+
+xmproc <- spawnPipe "/usr/local/bin/xautolock -time 15 -locker slock"
+xmproc <- spawnPipe "/usr/local/bin/xsetroot -solid gray"
+xmproc <- spawnPipe "/usr/local/bin/xmobar ~/.xmobarrc"
+xmproc <- spawnPipe "/usr/local/bin/setxkbmap -option ctrl:nocaps"
 
 xmonad $ defaultConfig
            {modMask = mod4Mask
