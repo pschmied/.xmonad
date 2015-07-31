@@ -8,9 +8,10 @@ import System.IO
 main = do
 
 xmproc <- spawnPipe "/usr/local/bin/xautolock -time 15 -locker slock"
-xmproc <- spawnPipe "/usr/local/bin/xsetroot -solid gray"
+xmproc <- spawnPipe "/usr/X11R6/bin/xsetroot -solid gray"
 xmproc <- spawnPipe "/usr/local/bin/xmobar ~/.xmobarrc"
-xmproc <- spawnPipe "/usr/local/bin/setxkbmap -option ctrl:nocaps"
+xmproc <- spawnPipe "/usr/X11R6/bin/setxkbmap -option ctrl:nocaps -option compose:ralt"
+xmproc <- spawnPipe "/usr/bin/mixerctl  outputs.master=156"
 
 xmonad $ defaultConfig
            {modMask = mod4Mask
